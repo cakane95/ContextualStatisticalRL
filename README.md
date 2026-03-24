@@ -64,9 +64,14 @@ poetry install
 
 ### Test experiment
 
-A minimal experiment is included to validate the setup. It runs a `GlobalETC3` learner against a `ContextualDiscreteMDP` with 4 states, 4 actions, and 3 contexts — loosely inspired by an agro-carbon management setting — and compares it to an oracle policy.
+A minimal experiment is included to validate the setup. It runs a `GlobalETC3` learner against a `ContextualDiscreteMDP` with 4 states, 4 actions, and 3 contexts — loosely inspired by an agro-carbon management setting — and compares it to an oracle policy (see Figure 1).
+
 ```bash
 poetry run python articles/2026_GymAgroCarbon/tests/2026_03_24_GlobalETC3_test.py
 ```
 
-![Transition graph of the toy agro-carbon cMDP used in the test experiment.](./toy_environment_transitions.png)
+
+<figure>
+  <img src="./toy_environment_transitions.png" alt="Transition graph of the toy agro-carbon cMDP">
+  <figcaption align="center"><em>Figure 1: Transition graph of the toy agro-carbon cMDP used in the test experiment.</em></figcaption>
+</figure>
