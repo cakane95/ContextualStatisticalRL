@@ -143,11 +143,11 @@ class ETC(ContextualAgent):
     def build_committed_policy(self):
         raise NotImplementedError("build_committed_policy() must be implemented by subclasses.")
 
-class GlobalETC3(ETC):
+class GlobalETC4(ETC):
     """
-    Explore-Then-Commit agent (Global scope) that explores for exactly 3 timesteps.
+    Explore-Then-Commit agent (Global scope) that explores for exactly 4 timesteps.
     At each exploration step, it chooses the least played valid action in the current state.
-    After 3 steps, it computes the optimal policy via Value Iteration and commits to it.
+    After 4 steps, it computes the optimal policy via Value Iteration and commits to it.
     """
     def __init__(
         self, 
@@ -158,7 +158,7 @@ class GlobalETC3(ETC):
         gamma=0.99, 
         epsilon=1e-3, 
         max_iter=1000, 
-        name="GlobalETC3"
+        name="GlobalETC4"
     ):
         super().__init__(
             nS, nA, nX, 
@@ -167,7 +167,7 @@ class GlobalETC3(ETC):
             name=name
         )
         
-        self.exploration_limit = 3
+        self.exploration_limit = 4
         self.gamma = gamma
         self.epsilon = epsilon
         self.max_iter = max_iter

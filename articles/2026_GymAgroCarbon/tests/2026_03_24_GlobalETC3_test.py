@@ -17,7 +17,7 @@ sys.path.append(PROJECT_ROOT)
 from environments.ContextualMDPs_discrete.contextualMDP import ContextualDiscreteMDP
 
 # Learners
-from learners.ContextualMDPs_discrete.ETC import GlobalETC3
+from learners.ContextualMDPs_discrete.ETC import GlobalETC4
 
 # Oracle builder
 from learners.ContextualMDPs_discrete.Optimal import ContextualOptimalControl as opt
@@ -105,7 +105,7 @@ skeleton = {
 #############################
 # List learners to be compared
 agents = [
-    GlobalETC3(
+    GlobalETC4(
         nS=env.nS,
         nA=env.nA,
         nX=env.nX,
@@ -113,7 +113,7 @@ agents = [
         gamma=0.99,
         epsilon=1e-6,
         max_iter=1000,
-        name="GlobalETC3",
+        name="GlobalETC4",
     )
 ]
 
@@ -147,7 +147,7 @@ cumregret = cummeans_oracle - cummeans_agent
 
 # 1. Cumulative means
 plt.figure(figsize=(8, 5))
-plt.plot(times, cummeans_agent, 'o', label="GlobalETC3", color='#377eb8',
+plt.plot(times, cummeans_agent, 'o', label="GlobalETC4", color='#377eb8',
          linewidth=2.0, linestyle='--', markevery=max(1, T // 20))
 plt.plot(times, cummeans_oracle, 'v', label="Oracle", color='#ff7f00',
          linewidth=2.0, linestyle='--', markevery=max(1, T // 20))
@@ -163,7 +163,7 @@ plt.close()
 
 # 2. Cumulative regret
 plt.figure(figsize=(8, 5))
-plt.plot(times, cumregret, 's', label="GlobalETC3 regret", color='#4daf4a',
+plt.plot(times, cumregret, 's', label="GlobalETC4 regret", color='#4daf4a',
          linewidth=2.0, linestyle='--', markevery=max(1, T // 20))
 plt.title("BasicAgroCarbonContextMDP")
 plt.xlabel("Time steps", fontsize=13, fontname="Arial")
